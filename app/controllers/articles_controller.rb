@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
 
     def create 
         @article = Article.new(article_params)
+        @article.user = User.first
         if @article.save
             flash[:notice] = "Article was created succesfully."
         #Then we show which page we redirect to | Ruby will stract the correspondent article id from the article variable
